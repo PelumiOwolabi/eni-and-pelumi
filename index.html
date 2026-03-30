@@ -1605,13 +1605,24 @@ function normalise(str) {
 }
 
 function attemptLogin() {
-  const nameInput  = document.getElementById('login-name').value.trim();
-  const contactInput = document.getElementById('login-contact').value.trim();
-  const errorEl    = document.getElementById('login-error');
+  const code = document.getElementById('login-code').value.trim();
 
-  if (!nameInput || !contactInput) {
-    errorEl.textContent = 'Please enter both your name and contact details.';
-    return;
+  const VALID_CODES = [
+    "EJ2025",
+    "WEDDING",
+    "LOVE2025"
+  ];
+
+  if (VALID_CODES.includes(code)) {
+    document.getElementById('login-gate').style.display = 'none';
+    const site = document.getElementById('main-site');
+    site.classList.add('visible');
+    startCountdown();
+    initReveal();
+  } else {
+    document.getElementById('login-error').textContent = "Invalid code. Please check your invitation.";
+  }
+}
   }
 
   const normContact = normalise(contactInput);
