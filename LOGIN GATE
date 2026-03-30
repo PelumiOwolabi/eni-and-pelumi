@@ -185,8 +185,6 @@
   /* ══════════════════════════════════
      MAIN SITE
   ══════════════════════════════════ */
-  #main-site { display: none; }
-  #main-site.visible { display: block; }
 
   /* ── NAVIGATION ── */
   nav {
@@ -1154,27 +1152,6 @@
 </head>
 <body>
 
-<!-- ══ LOGIN GATE ══ -->
-<div id="login-gate">
-  <div class="login-card">
-    <div class="login-monogram">E & J</div>
-    <div class="login-divider">
-      <span></span><em>✦</em><span></span>
-    </div>
-    <h2>You are cordially invited</h2>
-    <div class="login-field">
-      <label>Your First Name</label>
-      <input type="text" id="login-name" placeholder="As it appears on your invitation" autocomplete="off">
-    </div>
-    <div class="login-field">
-      <label>Email Address or Phone Number</label>
-      <input type="text" id="login-contact" placeholder="The one you registered with" autocomplete="off">
-    </div>
-    <button class="login-btn" onclick="attemptLogin()">Enter ✦</button>
-    <div class="login-error" id="login-error"></div>
-    <p class="login-note">This is a private event. Access is by invitation only.</p>
-  </div>
-</div>
 
 <!-- ══ MAIN SITE ══ -->
 <div id="main-site">
@@ -1589,16 +1566,7 @@
 // Format: { contact: "email_or_phone", name: "First Name" }
 // contact is the primary key (lowercase for matching)
 // ══════════════════════════════════
-const GUEST_LIST = [
-  { name: "Eleanor",  contact: "eleanor@example.com" },
-  { name: "James",    contact: "james@example.com" },
-  { name: "Margaret", contact: "margaret@example.com" },
-  { name: "Thomas",   contact: "thomas@example.com" },
-  { name: "Sophie",   contact: "07700900001" },
-  { name: "Oliver",   contact: "oliver@example.com" },
-  { name: "Charlotte",contact: "07700900002" },
-  // Add all invited guests here...
-];
+
 
 function normalise(str) {
   return str.toLowerCase().replace(/\s/g, '').replace(/[^\w@.+]/g, '');
